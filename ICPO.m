@@ -143,13 +143,13 @@ while FES < maxFES
         record_idx = record_idx + 1;
     end
     
-    % 进度输出
+  
     if mod(FES, 1000) < this_iter_agents || FES >= maxFES
         fprintf('FES: %6d/%d (%.1f%%), Best: %.4e\n', ...
             FES, maxFES, FES/maxFES*100, Best_score);
     end
     
-    % 动态调整种群规模（原逻辑完全不变）
+   
     cycle_length = maxFES / T;
     current_cycle_progress = rem(FES, cycle_length) / cycle_length;
     New_SearchAgents = fix(N_min + (SearchAgents - N_min) * (1 - current_cycle_progress));
